@@ -42,7 +42,10 @@
     "react-dom": "18.2.0",
     "@stripe/stripe-js": "^1.53.0",
     "firebase": "^10.0.0",
-    "tailwindcss": "^3.4.0"
+    "tailwindcss": "^3.4.0",
+    "@stripe/react-stripe-js": "^1.11.0",
+    "@headlessui/react": "^1.7.5",
+    "@heroicons/react": "^2.0.18"
   }
 }
 
@@ -63,6 +66,11 @@ module.exports = {
       backgroundImage: {
         'nature-pattern': "url('/assets/backgrounds/nature.jpg')",
         'sheep-pasture': "url('/assets/backgrounds/sheep.jpg')"
+      },
+      fontFamily: {
+        sans: ['ui-sans-serif', 'system-ui'],
+        serif: ['ui-serif', 'Georgia'],
+        mono: ['ui-monospace', 'SFMono-Regular']
       }
     }
   },
@@ -107,6 +115,11 @@ export const redirectToCheckout = async (sessionId) => {
 // 3. Use Amazon S3 for asset storage (backgrounds, logos)
 // 4. Store Firebase keys in Amplify environment variables
 // 5. Use AWS Cognito or Firebase Auth for authentication
+// 6. Configure Stripe + Klarna + Affirm + Afterpay + Sezzle for subscription billing options.
+
+// Frontend Build Configuration:
+// - Build Command: next build
+// - Output Directory: .next
 
 // Directory Structure (Monorepo):
 // three-little-birds/      <-- ✅ Monorepo root
