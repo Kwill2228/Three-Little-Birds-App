@@ -122,10 +122,18 @@ export const redirectToCheckout = async (sessionId) => {
 // - Output Directory: .next
 
 // Directory Structure (Monorepo):
-// three-little-birds/      <-- ✅ Monorepo root
-// ├── apps/
-// │   ├── web/             <-- React web frontend
-// │   ├── mobile/          <-- React Native or Expo mobile app
+// three-little-birds/      <-- amplify pull --appId d299lsp3i3kyou --envName staging
+// ├── apps/                <-- mkdir -p apps/web apps/mobile apps/admin
+// │   ├── web/             <-- import Amplify from 'aws-amplify';
+import awsExports from '../../amplify/aws-exports'; // Adjust path if needed
+
+Amplify.configure(awsExports);
+
+// │   ├── mobile/          <-- import Amplify from 'aws-amplify';
+import awsExports from '../../amplify/aws-exports'; // Adjust path
+
+Amplify.configure(awsExports);
+
 // │   └── admin/           <-- Optional admin dashboard
 // ├── packages/
 // │   ├── ui/              <-- Reusable UI components
