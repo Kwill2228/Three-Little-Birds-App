@@ -14,7 +14,6 @@
     "turbo": "^1.10.0"
   }
 }
-
 // Root: turbo.json
 {
   "$schema": "https://turbo.build/schema.json",
@@ -27,7 +26,6 @@
     "dev": {}
   }
 }
-
 // apps/web/package.json
 {
   "name": "web",
@@ -48,7 +46,6 @@
     "@heroicons/react": "^2.0.18"
   }
 }
-
 // apps/web/tailwind.config.js
 module.exports = {
   content: [
@@ -76,11 +73,9 @@ module.exports = {
   },
   plugins: []
 };
-
 // packages/firebase/index.js
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -89,20 +84,15 @@ const firebaseConfig = {
   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
-
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
-
 // packages/stripe/index.js
 import { loadStripe } from '@stripe/stripe-js';
-
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
-
 export const redirectToCheckout = async (sessionId) => {
   const stripe = await stripePromise;
   await stripe.redirectToCheckout({ sessionId });
 };
-
 // AWS Setup Notes:
 // 1. Use AWS Amplify to host the web app (`apps/web`):
 //    amplify init
@@ -116,24 +106,18 @@ export const redirectToCheckout = async (sessionId) => {
 // 4. Store Firebase keys in Amplify environment variables
 // 5. Use AWS Cognito or Firebase Auth for authentication
 // 6. Configure Stripe + Klarna + Affirm + Afterpay + Sezzle for subscription billing options.
-
 // Frontend Build Configuration:
 // - Build Command: next build
 // - Output Directory: .next
-
 // Directory Structure (Monorepo):
 // three-little-birds/      <-- amplify pull --appId d299lsp3i3kyou --envName staging
 // ├── apps/                <-- mkdir -p apps/web apps/mobile apps/admin
 // │   ├── web/             <-- import Amplify from 'aws-amplify';
 import awsExports from '../../amplify/aws-exports'; // Adjust path if needed
-
 Amplify.configure(awsExports);
-
 // │   ├── mobile/          <-- import Amplify from 'aws-amplify';
 import awsExports from '../../amplify/aws-exports'; // Adjust path
-
 Amplify.configure(awsExports);
-
 // │   └── admin/           <-- Optional admin dashboard
 // ├── packages/
 // │   ├── ui/              <-- Reusable UI components
@@ -146,5 +130,4 @@ Amplify.configure(awsExports);
 // ├── package.json         <-- Root dependencies & scripts
 // ├── turbo.json or nx.json
 // └── README.md
-
 // Next Step: Create apps/mobile and apps/admin folders, populate them with boilerplate React Native and admin interfaces.
