@@ -145,17 +145,5 @@ Understood! Let me know if you need anything else.
 
 ![image](https://github.com/user-attachments/assets/9105fe5e-fb4f-4d8f-9be6-18b72b3e61c9)
 
-jobs:
-  setup-firebase:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1 # This is optional on linux and macOS
-      - uses: pocket-apps/action-setup-firebase@v2
-        with:
-          firebase-token: YOUR_TOKEN
-
-- name: Install & Setup Firebase CLI
-  uses: woutervroege/action-setup-firebase@0.8.2
 
 
