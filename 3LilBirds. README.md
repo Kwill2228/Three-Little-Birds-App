@@ -141,7 +141,7 @@ All AI interactions within this app are designed to reflect the love, peace, tru
 - Moroccan oils, natural candles, body care kits
 - Journals with premium pens
 - Hobby corner: digital art, music creation, painting playlists
-Understood! Let me know if you need anything else.
+& more  !
 
 ![image](https://github.com/user-attachments/assets/9105fe5e-fb4f-4d8f-9be6-18b72b3e61c9)
 
